@@ -4,7 +4,9 @@
     <default>
         <film_config>
             <general>
-                <enable>1</enable>
+                <enable_film>0</enable_film>
+                <enable_debug>0</enable_debug>
+                <film_genre>Comedy</film_genre>
             </general>
         </film_config>
     </default>

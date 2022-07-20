@@ -8,15 +8,25 @@
         </tab>
         <section id="film_config" translate="label" sortOrder="130"
                  showInDefault="1" showInWebsite="1" showInStore="1">
-            <class></class>
             <label>Film Configuration</label>
             <tab>wtc_film</tab>
             <resource>Wtc_Film::film_config</resource>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>General Configuration</label>
-                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="enable_film" translate="label" type="select"
+                       sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Enable Film</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_debug" translate="label" type="select"
+                       sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Debug</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="film_genre" translate="label" type="text"
+                       sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Film Genre</label>
+                    <comment>Each film can have up to three genres.</comment>
                 </field>
             </group>
         </section>
