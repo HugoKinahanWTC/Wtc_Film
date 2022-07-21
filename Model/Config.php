@@ -29,7 +29,7 @@ class Config implements ConfigInterface
             ScopeInterface::SCOPE_STORE);
     }
 
-    public function getFilmGenre() : string
+    public function getFilmGenre() : ?string
     {
         return $this->scopeConfig->getValue(self::XML_PATH_FILM_GENRE,
             ScopeInterface::SCOPE_STORE);

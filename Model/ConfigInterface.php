@@ -15,5 +15,5 @@ interface ConfigInterface
 
     public function isDebugEnabled() : bool;
 
-    public function getFilmGenre() : string;
+    public function getFilmGenre() : ?string;
 }
