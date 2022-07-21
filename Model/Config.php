@@ -34,6 +34,4 @@ class Config implements ConfigInterface
         return $this->scopeConfig->getValue(self::XML_PATH_FILM_GENRE,
             ScopeInterface::SCOPE_STORE);
     }
-
 }
-

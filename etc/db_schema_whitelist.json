@@ -1,0 +1,17 @@
+{
+  "film_list": {
+    "column": {
+      "film_id": true,
+      "title": true,
+      "status": true
+    },
+    "index": {
+      "FILM_LIST_FILM_TITLE": true,
+      "FILM_LIST_STATUS": true
+    },
+    "constraint": {
+      "PRIMARY": true,
+      "FILM_LIST_TITLE_PRIMARY": true
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="film_list" resource="default" engine="innodb"
+           comment="Film List Table">
+        <column xsi:type="int" name="film_id" unsigned="true" nullable="false"
+                identity="true" comment="Film ID" />
+        <column xsi:type="varchar" name="title" nullable="false" length="32"
+                default="simple" comment="Film Title" />
+        <column xsi:type="boolean" name="status" nullable="false"
+                comment="Film Status" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="film_id" />
+        </constraint>
+        <index referenceId="FILM_TITLE_INDEX" indexType="btree">
+            <column name="title" />
+        </index>
+        <index referenceId="FILM_STATUS" indexType="btree">
+            <column name="status" />
+        </index>
+    </table>
+</schema>
