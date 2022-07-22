@@ -1,0 +1,10 @@
+<h1>Film List</h1>
+
+<?php $films = $this->getViewModel()->getAllFilms(); ?>
+
+<div>
+    <?php foreach ($films as $film): ?>
+    <h4><?php echo $film->getTitle(); ?></h4>
+        Status: <?php echo $film->getStatus(); ?><br />
+    <?php endforeach; ?>
+</div>

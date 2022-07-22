@@ -18,7 +18,8 @@ class InstallFilms implements DataPatchInterface
         $this->moduleDataSetup = $moduleDataSetup;
     }
 
-    public function apply() {
+    public function apply()
+    {
         $data = [
             ['title' => 'The Shawshank Redemption', 'status' => true],
             ['title' => 'Interstellar', 'status' => true],
