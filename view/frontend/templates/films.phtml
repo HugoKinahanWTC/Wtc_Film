@@ -5,6 +5,8 @@
 <div>
     <?php foreach ($films as $film): ?>
     <h4><?php echo $film->getTitle(); ?></h4>
-        Status: <?php echo $film->getStatus(); ?><br />
+        Status: <?php if ($film->getStatus() == 1) {
+            echo 'Active';
+        } ?><br />
     <?php endforeach; ?>
 </div>

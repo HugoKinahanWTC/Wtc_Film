@@ -11,6 +11,6 @@ class Film extends AbstractModel
     // This is enough to have a functional model
     public function _construct()
     {
-        $this->_init(\Wtc\Film\ModelResourceModel\Film::class);
+        $this->_init(\Wtc\Film\Model\ResourceModel\Film::class);
     }
 }

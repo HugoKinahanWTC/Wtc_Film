@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Wtc\Film\Contoller\Films;
+namespace Wtc\Film\Controller\Film;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\View\Result\PageFactory;
