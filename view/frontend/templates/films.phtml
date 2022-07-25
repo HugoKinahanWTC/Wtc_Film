@@ -7,6 +7,26 @@
     <h4><?php echo $film->getTitle(); ?></h4>
         Status: <?php if ($film->getStatus() == 1) {
             echo 'Active';
-        } ?><br />
+        } else {
+            echo 'Inactive';
+        }?><br />
+    <?php endforeach; ?>
+</div>
+
+<h3>Highest Rated Film</h3>
+
+<?php $film = $this->getViewModel()->getFilm(3); ?>
+<div>
+    <p><?= $film->getTitle(); ?></p>
+    Status: <?= $film->getStatus(); ?><br />
+</div>
+
+
+<div>
+    <h2>Active Films</h2>
+    <?php foreach ($films as $film): ?>
+    <?php if ($film->getStatus() == 1) {
+        echo $film->getTitle() . ', ';
+        } ?>
     <?php endforeach; ?>
 </div>
