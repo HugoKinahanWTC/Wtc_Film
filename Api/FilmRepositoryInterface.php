@@ -17,13 +17,13 @@ interface FilmRepositoryInterface
      * @param \Wtc\Film\Api\Data\FilmInterface $film
      * @return \Wtc\Film\Api\Data\FilmInterface
      */
-    public function save(FilmInterface $film);
+    public function save(\Wtc\Film\Api\Data\FilmInterface $film);
 
     /**
      * @param \Wtc\Film\Api\Data\FilmInterface $film
      * @return void
      */
-    public function delete(FilmInterface $film);
+    public function delete(\Wtc\Film\Api\Data\FilmInterface $film);
 
     /**
      * @param SearchCriteriaInterface $searchCriteria
