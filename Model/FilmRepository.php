@@ -67,7 +67,7 @@ class FilmRepository implements FilmRepositoryInterface
     }
 
     public function getList(SearchCriteriaInterface $searchCriteria) {
-        $collection = $this->collectionFactory->create();
+        $collection = $this->filmCollectionFactory->create();
         $this->addFiltersToCollection($searchCriteria, $collection);
         $this->addSortOrdersToCollection($searchCriteria, $collection);
         $this->addPagingToCollection($searchCriteria, $collection);
