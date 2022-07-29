@@ -7,6 +7,7 @@ namespace Wtc\Film\Model;
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Api\SortOrder;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Wtc\Film\Api\Data\FilmInterface;
 use Wtc\Film\Api\Data\FilmSearchResultInterface;
 use Wtc\Film\Api\Data\FilmSearchResultInterfaceFactory;
 use Wtc\Film\Api\FilmRepositoryInterface;
@@ -43,7 +44,7 @@ class FilmRepository implements FilmRepositoryInterface
     }
 
 
-    public function getById($id): FilmRepositoryInterface {
+    public function getById($id) : FilmInterface {
         $film = $this->filmFactory->create();
         $film->getResource()->load($film, $id);
         if (!$film->getId()) {

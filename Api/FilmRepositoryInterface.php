@@ -27,13 +27,13 @@ interface FilmRepositoryInterface
 
     /**
      * @param SearchCriteriaInterface $searchCriteria
-     * @return \Wtc\Film\Api\Data\FilmSearchresultInterface
+     * @return \Wtc\Film\Api\Data\FilmSearchResultInterface
      */
     public function getList(SearchCriteriaInterface $searchCriteria);
 
     /**
      * @param SearchCriteriaInterface $searchCriteria
-     * @return \Wtc\Film\Api\Data\FilmSearchresultInterface
+     * @return \Wtc\Film\Api\Data\FilmSearchResultInterface
      */
     public function getActiveFilms(SearchCriteriaInterface $searchCriteria);
 }
