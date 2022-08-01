@@ -67,7 +67,7 @@ class FilmRepository implements FilmRepositoryInterface
         // TODO: Implement getActiveFilms() method.
     }
 
-    public function getList(SearchCriteriaInterface $searchCriteria) {
+    public function getList(SearchCriteriaInterface $searchCriteria): FilmSearchResultInterface {
         $collection = $this->filmCollectionFactory->create();
         $this->addFiltersToCollection($searchCriteria, $collection);
         $this->addSortOrdersToCollection($searchCriteria, $collection);

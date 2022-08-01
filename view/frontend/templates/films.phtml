@@ -21,6 +21,17 @@
     Status: <?= $film->getStatus(); ?><br />
 </div>
 
+<?php $activeFilms = $this->getViewModel()->getAllActiveFilms(1); ?>
+
+<div>
+    <h1>Active Film List</h1>
+    <?php foreach ($activeFilms as $activeFilm): ?>
+        <h4><?php echo $activeFilm->getTitle(); ?></h4>
+        Status: <?php if ($activeFilm->getStatus() == 1) {
+            echo 'Active';
+        } ?><br />
+    <?php endforeach; ?>
+</div>
 
 <div>
     <h2>Active Films</h2>

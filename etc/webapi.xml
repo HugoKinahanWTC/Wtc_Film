@@ -16,25 +16,4 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
-    <route method="POST" url="/V1/wtc_films">
-        <service class="Wtc\Film\Api\FilmRepositoryInterface"
-                 method="save"/>
-        <resources>
-            <resource ref="anonymous"/>
-        </resources>
-    </route>
-    <route method="PUT" url="/V1/wtc_films">
-        <service class="Wtc\Film\Api\FilmRepositoryInterface"
-                 method="save"/>
-        <resources>
-            <resource ref="anonymous"/>
-        </resources>
-    </route>
-    <route method="DELETE" url="/V1/wtc_films">
-        <service class="Wtc\Film\Api\FilmRepositoryInterface"
-                 method="delete"/>
-        <resources>
-            <resource ref="anonymous"/>
-        </resources>
-    </route>
 </routes>

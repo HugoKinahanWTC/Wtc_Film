@@ -33,4 +33,11 @@ class Films implements ArgumentInterface
         return $film;
     }
 
+    public function getAllActiveFilms($status) {
+        $films = $this->collectionFactory->create();
+        $films->load($status);
+
+        return $films;
+    }
+
 }
