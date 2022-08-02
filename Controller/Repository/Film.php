@@ -73,10 +73,10 @@ class Film implements HttpGetActionInterface
         return $response->setContents(implode('<br>', $filmArray));
     }
 
-    private function getFilmsFromRepository(): array {
+    public function getFilmsFromRepository(): array {
         $this->setFilmStatusFilter();
 //        $this->setFilmTitleFilter();
-        $this->setFilmOrder();
+//        $this->setFilmOrder();
 
         $criteria = $this->searchCriteriaBuilder->create();
         $films = $this->filmRepository->getList($criteria);

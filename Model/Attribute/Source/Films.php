@@ -3,53 +3,30 @@
 namespace Wtc\Film\Model\Attribute\Source;
 
 use Magento\Eav\Model\Entity\Attribute\Source\AbstractSource;
-use Wtc\Film\Api\FilmRepositoryInterface;
-use Magento\Framework\Api\SearchCriteriaBuilder;
+use Wtc\Film\Controller\Repository\Film;
 
 class Films extends AbstractSource
 {
 
-//    private FilmRepositoryInterface $filmRepository;
-//    private SearchCriteriaBuilder $searchCriteriaBuilder;
+    private Film $films;
 
-//    /**
-//     * Get all options
-//     * @return array
-//     */
+    public function __construct(
+        Film $films
+    ) {
+        $this->films = $films;
+    }
 
-//    public function __construct(
-//        FilmRepositoryInterface $filmRepository,
-//        SearchCriteriaBuilder   $searchCriteriaBuilder
-//    ) {
-//        $this->filmRepository = $filmRepository;
-//        $this->searchCriteriaBuilder = $searchCriteriaBuilder;
-//    }
-
-    public function getAllOptions()
+    public function getAllOptions(): ?array
     {
-//        $criteria = $this->searchCriteriaBuilder->create();
-//        $films = $this->filmRepository->getList($criteria);
-//        $films = $films->getItems();
-//
-//        foreach ($films as $film) {
-//            if (!$this->_options) {
-//                $this->_options = [
-//                    'label' => __($film['title']),
-//                    'value' => $film['film_id']
-//                ];
-//            }
-//        }
-
-        if (!$this->_options) {
-            $this->_options = [
-                ['label' => __('The Shawshank Redemption'), 'value' => 'The Shawshank Redemption'],
-                ['label' => __('Interstellar'), 'value' => 'Interstellar'],
-                ['label' => __('Saving Private Ryan'), 'value' => 'Saving Private Ryan'],
-                ['label' => __('The Lion King'), 'value' => 'The Lion King'],
-                ['label' => __('Toy Story'), 'value' => 'Toy Story'],
-                ['label' => __('Titanic'), 'value' => 'Titanic'],
-            ];
-        }
+        $films = $this->films->getFilmsFromRepository();
+        $this->_options = [];
+        foreach ($films as $film) {
+                $this->_options[] =
+                    [
+                    'label' => __($film['title']),
+                    'value' => $film['film_id']
+                    ];
+            }
         return $this->_options;
     }
 }

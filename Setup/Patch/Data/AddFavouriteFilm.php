@@ -62,18 +62,21 @@ class AddFavouriteFilm implements DataPatchInterface
         );
         $favouriteFilmAttribute = $this->eavConfig->getAttribute(Customer::ENTITY, 'favourite_film');
 
+        // add to forms
         $favouriteFilmAttribute->setData(
             'used_in_forms',
-            ['adminhtml_customer']
+            ['adminhtml_customer', 'customer_account_create']
         );
+
+        // save
         $this->attributeResource->save($favouriteFilmAttribute);
     }
 
-    public static function getDependencies() {
+    public static function getDependencies(): array {
         return [];
     }
 
-    public function getAliases() {
+    public function getAliases(): array {
         return [];
     }
 
