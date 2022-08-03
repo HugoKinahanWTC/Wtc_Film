@@ -12,9 +12,8 @@ use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Customer\Model\ResourceModel\Attribute as
     AttributeResource;
-use Wtc\Film\Model\Attribute\Source\Films;
 
-class AddFavouriteFilm implements DataPatchInterface
+class AddBio implements DataPatchInterface
 {
 
     /** @var ModuleDataSetupInterface */
@@ -48,30 +47,28 @@ class AddFavouriteFilm implements DataPatchInterface
 
         $eavSetup->addAttribute(
             \Magento\Customer\Model\Customer::ENTITY,
-            'favourite_film',
+            'customer_bio',
             [
                 'type'         => 'varchar',
-                'label'        => 'Favourite Film',
-                'input'        => 'select',
-                'source'       => Films::class,
+                'label'        => 'Bio',
+                'input'        => 'text',
                 'required'     => false,
                 'visible'      => true,
                 'user_defined' => true,
                 'system'       => 0,
-                'backend'      =>
-                    \Magento\Eav\Model\Entity\Attribute\Backend\ArrayBackend::class
-                ]
+            ]
         );
-        $favouriteFilmAttribute = $this->eavConfig->getAttribute(Customer::ENTITY, 'favourite_film');
+        $customerBioAttribute = $this->eavConfig->getAttribute
+        (Customer::ENTITY, 'customer_bio');
 
         // add to forms
-        $favouriteFilmAttribute->setData(
+        $customerBioAttribute->setData(
             'used_in_forms',
             ['adminhtml_customer', 'customer_account_create', 'customer_account_edit']
         );
 
         // save
-        $this->attributeResource->save($favouriteFilmAttribute);
+        $this->attributeResource->save($customerBioAttribute);
     }
 
     public static function getDependencies(): array {
