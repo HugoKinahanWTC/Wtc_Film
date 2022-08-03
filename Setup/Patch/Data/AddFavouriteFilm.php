@@ -79,5 +79,4 @@ class AddFavouriteFilm implements DataPatchInterface
     public function getAliases(): array {
         return [];
     }
-
 }

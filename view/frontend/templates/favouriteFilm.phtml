@@ -1,0 +1,14 @@
+<?php $films = $this->getViewModel()->getAllFilms(); ?>
+
+<div class="field film">
+    <h4>Favourite Film</h4>
+    <select>
+        <?php foreach ($films as $film): ?>
+            <?php if ($film->getStatus() == 1): ?>
+                <option value="<?= $film->getId(); ?>"
+                        label="<?= $film->getTitle(); ?>">
+                </option>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </select>
+</div>
