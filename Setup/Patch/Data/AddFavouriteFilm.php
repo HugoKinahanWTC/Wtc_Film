@@ -54,15 +54,19 @@ class AddFavouriteFilm implements DataPatchInterface
                 'label'        => 'Favourite Film',
                 'input'        => 'select',
                 'source'       => Films::class,
-                'required'     => false,
+                'required'     => true,
                 'visible'      => true,
                 'user_defined' => true,
-                'system'       => 0,
-                'backend'      =>
-                    \Magento\Eav\Model\Entity\Attribute\Backend\ArrayBackend::class
+                'system'       => 0
                 ]
         );
+
+        $attributeSetId = $eavSetup->getDefaultAttributeSetId(Customer::ENTITY);
+        $attributeGroupId = $eavSetup->getDefaultAttributeGroupId(Customer::ENTITY);
+
         $favouriteFilmAttribute = $this->eavConfig->getAttribute(Customer::ENTITY, 'favourite_film');
+        $favouriteFilmAttribute->setData('attribute_set_id', $attributeSetId);
+        $favouriteFilmAttribute->setData('attribute_group_id', $attributeGroupId);
 
         // add to forms
         $favouriteFilmAttribute->setData(

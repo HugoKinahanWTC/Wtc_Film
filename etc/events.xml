@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+    <event name="customer_register_success">
+        <observer name="film_logger"
+                  instance="Wtc\Film\Observer\Log"
+                  shared="false"
+                  disabled="false"
+        />
+    </event>
+</config>

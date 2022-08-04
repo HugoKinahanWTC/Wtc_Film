@@ -1,9 +1,9 @@
 <?php $films = $this->getViewModel()->getAllFilms(); ?>
 
 <div class="field film required" >
-    <h4>Favourite Film</h4>
+    <h4><?= __('Favourite Film'); ?></h4>
     <div class="control">
-        <select id="favourite_film" name="favourite_film" >
+        <select id="favourite_film" name="favourite_film">
             <?php foreach ($films as $film): ?>
                 <?php if ($film->getStatus() == 1): ?>
                     <option value="<?= $film->getId(); ?>"
