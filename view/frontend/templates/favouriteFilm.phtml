@@ -1,0 +1,26 @@
+<?php
+
+$viewModel = $this->getViewModel();
+
+$films = $viewModel->getAllActiveFilms();
+
+$customerFavouriteFilm = $viewModel->getCustomerFavouriteFilm();
+
+?>
+
+<div class="field film required">
+    <h4><?= __('Favourite Film'); ?></h4>
+    <div class="control">
+        <select id="favourite_film" name="favourite_film">
+            <?php foreach ($films as $film): ?>
+                <option value="<?= $film->getId(); ?>"
+                        label="<?= $film->getTitle(); ?>"
+                    <?php if ($film->getId() == $customerFavouriteFilm): ?>
+                        selected="selected"
+                    <?php endif; ?>
+                >
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+</div>

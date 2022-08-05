@@ -3,37 +3,18 @@
 namespace Wtc\Film\Api;
 
 use Magento\Framework\Api\SearchCriteriaInterface;
+use Wtc\Film\Api\Data\FilmInterface;
+use Wtc\Film\Api\Data\FilmSearchResultInterface;
 
 interface FilmRepositoryInterface
 {
-    /**
-     * @param int $id
-     * @return \Wtc\Film\Api\Data\FilmInterface
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
-     */
-    public function getById($id);
 
-    /**
-     * @param \Wtc\Film\Api\Data\FilmInterface $film
-     * @return \Wtc\Film\Api\Data\FilmInterface
-     */
-    public function save(\Wtc\Film\Api\Data\FilmInterface $film);
+    public function getById($id): FilmInterface;
 
-    /**
-     * @param \Wtc\Film\Api\Data\FilmInterface $film
-     * @return void
-     */
-    public function delete(\Wtc\Film\Api\Data\FilmInterface $film);
+    public function save(FilmInterface $film): FilmInterface;
 
-    /**
-     * @param SearchCriteriaInterface $searchCriteria
-     * @return \Wtc\Film\Api\Data\FilmSearchresultInterface
-     */
-    public function getList(SearchCriteriaInterface $searchCriteria);
+    public function delete(FilmInterface $film) : void;
 
-    /**
-     * @param SearchCriteriaInterface $searchCriteria
-     * @return \Wtc\Film\Api\Data\FilmSearchresultInterface
-     */
-    public function getActiveFilms(SearchCriteriaInterface $searchCriteria);
+    public function getList(SearchCriteriaInterface $searchCriteria):
+    FilmSearchResultInterface;
 }

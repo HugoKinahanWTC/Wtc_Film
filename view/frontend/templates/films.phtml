@@ -1,32 +1,17 @@
-<h1>Film List</h1>
+<?php
 
-<?php $films = $this->getViewModel()->getAllFilms(); ?>
+$viewModel = $this->getViewModel();
 
-<div>
-    <?php foreach ($films as $film): ?>
-    <h4><?php echo $film->getTitle(); ?></h4>
-        Status: <?php if ($film->getStatus() == 1) {
-            echo 'Active';
-        } else {
-            echo 'Inactive';
-        }?><br />
-    <?php endforeach; ?>
-</div>
+$films = $viewModel->getAllActiveFilms();
 
-<h3>Highest Rated Film</h3>
+$customerFavouriteFilm = $viewModel->getCustomerFavouriteFilm();
 
-<?php $film = $this->getViewModel()->getFilm(3); ?>
-<div>
-    <p><?= $film->getTitle(); ?></p>
-    Status: <?= $film->getStatus(); ?><br />
-</div>
+?>
 
+<h1><?= __('Favourite Film'); ?></h1>
 
-<div>
-    <h2>Active Films</h2>
-    <?php foreach ($films as $film): ?>
-    <?php if ($film->getStatus() == 1) {
-        echo $film->getTitle() . ', ';
-        } ?>
-    <?php endforeach; ?>
-</div>
+<?php foreach ($films as $film): ?>
+    <?php if ($film->getId() == $customerFavouriteFilm): ?>
+        <p><?= $film->getTitle(); ?></p>
+    <?php endif; ?>
+<?php endforeach; ?>
