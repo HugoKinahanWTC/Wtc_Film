@@ -7,7 +7,6 @@ use Wtc\Film\Controller\Repository\Film;
 
 class Films extends AbstractSource
 {
-
     private Film $films;
 
     public function __construct(
@@ -16,17 +15,16 @@ class Films extends AbstractSource
         $this->films = $films;
     }
 
-    public function getAllOptions(): ?array
-    {
+    public function getAllOptions(): array {
         $films = $this->films->getFilmsFromRepository();
         $this->_options = [];
         foreach ($films as $film) {
-                $this->_options[] =
-                    [
+            $this->_options[] =
+                [
                     'label' => __($film['title']),
                     'value' => $film['film_id']
-                    ];
-            }
+                ];
+        }
         return $this->_options;
     }
 }

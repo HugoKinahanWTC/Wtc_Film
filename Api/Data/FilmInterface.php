@@ -1,39 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Wtc\Film\Api\Data;
 
 interface FilmInterface
 {
-    /**
-     * @return int
-     */
+
     public function getId();
 
-    /**
-     * @param int $id
-     * @return void
-     */
     public function setId($id);
 
-    /**
-     * @return string
-     */
-    public function getTitle();
+    public function getTitle(): string;
 
-    /**
-     * @param string $title
-     * @return void
-     */
     public function setTitle($title);
 
-    /**
-     * @return int
-     */
-    public function getStatus();
+    public function getStatus(): int;
 
-    /**
-     * @param int $status
-     * @return void
-     */
     public function setStatus($status);
 }

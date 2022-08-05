@@ -11,11 +11,9 @@ use Wtc\Film\Controller\Repository\Film;
 
 class Log implements ObserverInterface
 {
-
     private Film $films;
 
     private LoggerInterface $logger;
-
 
     public function __construct(
         Film $films,
@@ -27,13 +25,11 @@ class Log implements ObserverInterface
 
     public function execute(Observer $observer)
     {
-
         $films = $this->films->getFilmsFromRepository();
 
         /** @var \Magento\Customer\Model\Data\Customer $customer */
         $customer = $observer->getData('customer');
         $customer = $customer->getCustomAttributes();
-        var_dump($customer['favourite_film']->getValue());
 
         foreach ($films as $film) {
             if ($film['film_id'] == $customer['favourite_film']->getValue

@@ -15,14 +15,10 @@ use Magento\Customer\Model\ResourceModel\Attribute as
 
 class AddBio implements DataPatchInterface
 {
-
-    /** @var ModuleDataSetupInterface */
     private ModuleDataSetupInterface $moduleDataSetup;
 
-    /** @var EavSetupFactory */
     private EavSetupFactory $eavSetupFactory;
 
-    /** @var EavConfig */
     private Config $eavConfig;
 
     /** @var AttributeResource */
@@ -33,8 +29,7 @@ class AddBio implements DataPatchInterface
         Config $eavConfig,
         ModuleDataSetupInterface $moduleDataSetup,
         AttributeResource $attributeResource
-    )
-    {
+    ) {
         $this->eavSetupFactory = $eavSetupFactory;
         $this->eavConfig = $eavConfig;
         $this->moduleDataSetup = $moduleDataSetup;

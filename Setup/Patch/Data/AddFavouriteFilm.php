@@ -16,33 +16,28 @@ use Wtc\Film\Model\Attribute\Source\Films;
 
 class AddFavouriteFilm implements DataPatchInterface
 {
-
-    /** @var ModuleDataSetupInterface */
     private ModuleDataSetupInterface $moduleDataSetup;
 
-    /** @var EavSetupFactory */
     private EavSetupFactory $eavSetupFactory;
 
-    /** @var EavConfig */
     private Config $eavConfig;
 
-    /** @var AttributeResource */
     private AttributeResource $attributeResource;
 
-    public function __construct(
+    public function __construct
+    (
         EavSetupFactory $eavSetupFactory,
         Config $eavConfig,
         ModuleDataSetupInterface $moduleDataSetup,
         AttributeResource $attributeResource
-    )
-    {
+    ) {
         $this->eavSetupFactory = $eavSetupFactory;
         $this->eavConfig = $eavConfig;
         $this->moduleDataSetup = $moduleDataSetup;
         $this->attributeResource = $attributeResource;
     }
 
-    public function apply()
+    public function apply(): void
     {
         $eavSetup = $this->eavSetupFactory->create(['setup' => $this->moduleDataSetup]);
 
@@ -78,11 +73,13 @@ class AddFavouriteFilm implements DataPatchInterface
         $this->attributeResource->save($favouriteFilmAttribute);
     }
 
-    public static function getDependencies(): array {
+    public static function getDependencies(): array
+    {
         return [];
     }
 
-    public function getAliases(): array {
+    public function getAliases(): array
+    {
         return [];
     }
 }

@@ -15,31 +15,23 @@ class Film extends AbstractModel implements FilmInterface
         $this->_init(\Wtc\Film\Model\ResourceModel\Film::class);
     }
 
-    /**
-     * @return mixed|string|null
-     */
-    public function getTitle() {
+    public function getTitle(): string
+    {
         return $this->_getData('title');
     }
 
-    /**
-     * @param string $title
-     */
-    public function setTitle($title) {
+    public function setTitle($title): string
+    {
         $this->setTitle('title', $title);
     }
 
-    /**
-     * @return int|mixed|null
-     */
-    public function getStatus() {
+    public function getStatus() : int
+    {
         return $this->_getData('status');
     }
 
-    /**
-     * @param int $status
-     */
-    public function setStatus($status) {
+    public function setStatus($status)
+    {
         $this->setTitle('status', $status);
     }
 }

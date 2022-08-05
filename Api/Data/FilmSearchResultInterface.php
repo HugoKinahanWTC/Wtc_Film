@@ -3,16 +3,17 @@
 namespace Wtc\Film\Api\Data;
 
 use Magento\Framework\Api\SearchResultsInterface;
+use Wtc\Film\Api\Data\FilmInterface;
 
 interface FilmSearchResultInterface extends SearchResultsInterface
 {
     /**
-     * @return \Wtc\Film\Api\Data\FilmInterface[]
+     * @return FilmInterface[]
      */
     public function getItems();
 
     /**
-     * @param \Wtc\Film\Api\Data\FilmInterface $items
+     * @param array $items
      * @return void
      */
     public function setItems(array $items);

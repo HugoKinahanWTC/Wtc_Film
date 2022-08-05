@@ -1,18 +1,17 @@
 <?php
-$films = $this->getViewModel()->getAllFilms();
 
+$viewModel = $this->getViewModel();
 
-$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-$customerSession = $objectManager->get('Magento\Customer\Model\Session');
-$customerId = $customerSession->getCustomer()->getId();
-$customerFavouriteFilm = $customerSession->getCustomer()->getData();
+$films = $viewModel->getAllActiveFilms();
+
+$customerFavouriteFilm = $viewModel->getCustomerFavouriteFilm();
 
 ?>
 
-<h1>Favourite Film</h1>
+<h1><?= __('Favourite Film'); ?></h1>
 
 <?php foreach ($films as $film): ?>
-    <?php if ($film->getId() == $customerFavouriteFilm['favourite_film']): ?>
+    <?php if ($film->getId() == $customerFavouriteFilm): ?>
         <p><?= $film->getTitle(); ?></p>
     <?php endif; ?>
 <?php endforeach; ?>

@@ -5,39 +5,34 @@ declare(strict_types=1);
 namespace Wtc\Film\ViewModel;
 
 use Magento\Framework\View\Element\Block\ArgumentInterface;
-use Wtc\Film\Model\FilmFactory;
-use Wtc\Film\Model\ResourceModel\Films\CollectionFactory;
+use Magento\Customer\Model\Session;
+use Wtc\Film\Controller\Repository\Film;
 
 class Films implements ArgumentInterface
 {
-    protected FilmFactory $filmFactory;
+    protected Film $films;
 
-    protected CollectionFactory $collectionFactory;
+    protected Session $session;
 
     public function __construct(
-        FilmFactory $filmFactory,
-        CollectionFactory $collectionFactory
+        Film    $films,
+        Session $session
     ) {
-        $this->filmFactory = $filmFactory;
-        $this->collectionFactory = $collectionFactory;
+        $this->films = $films;
+        $this->session = $session;
     }
 
-    public function getAllFilms() {
-        return $this->collectionFactory->create();
+    public function getCustomerFavouriteFilm(): ?string
+    {
+        $customer = $this->session->getCustomer();
+        if (!$customer) {
+            return null;
+        }
+        $customerFavouriteFilm = $customer->getData('favourite_film');
+        return $customerFavouriteFilm;
     }
 
-    public function getFilm($id) {
-        $film = $this->filmFactory->create();
-        $film->load($id);
-
-        return $film;
+    public function getAllActiveFilms(): array {
+        return $this->films->getFilmsFromRepository();
     }
-
-    public function getAllActiveFilms($status) {
-        $films = $this->collectionFactory->create();
-        $films->load($status);
-
-        return $films;
-    }
-
 }

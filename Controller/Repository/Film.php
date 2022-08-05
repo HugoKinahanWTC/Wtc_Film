@@ -18,29 +18,13 @@ use Magento\Framework\Api\SortOrderBuilder;
 class Film implements HttpGetActionInterface
 {
 
-    /**
-     * @var FilmRepositoryInterface
-     */
     private FilmRepositoryInterface $filmRepository;
 
-    /**
-     * @var SearchCriteriaBuilder
-     */
     private SearchCriteriaBuilder $searchCriteriaBuilder;
 
-    /**
-     * @var FilterBuilder
-     */
     private FilterBuilder $filterBuilder;
 
-    /**
-     * @var RawFactory
-     */
     private RawFactory $rawFactory;
-
-    /**
-     * @var SortOrderBuilder
-     */
 
     private SortOrderBuilder $sortOrderBuilder;
 
@@ -110,5 +94,4 @@ class Film implements HttpGetActionInterface
             ->create();
         $this->searchCriteriaBuilder->addSortOrder($sortOrder);
     }
-
 }
