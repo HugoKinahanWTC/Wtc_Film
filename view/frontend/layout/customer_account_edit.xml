@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="form.additional.info">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="wtc.customer.film"
+                   template="Wtc_Film::favouriteFilm.phtml" >
+                <arguments>
+                    <argument name="view_model"
+                              xsi:type="object">Wtc\Film\ViewModel\Films
+                    </argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Template"
+                   name="wtc.customer.bio"
+                   template="Wtc_Film::customerBio.phtml" />
+        </referenceBlock>
+    </body>
+</page>
